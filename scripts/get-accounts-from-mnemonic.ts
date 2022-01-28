@@ -1,8 +1,13 @@
-import { getAccounts } from "../src/account";
+import { createMnemonic, getAccounts } from "../src/account";
 
 const { MNEMONIC } = process.env;
 
 const mnemonic = MNEMONIC as string;
 
-const accounts = getAccounts(mnemonic);
-console.table(accounts);
+// const mnemonic = createMnemonic(16);
+// console.log(mnemonic);
+
+const accounts = getAccounts(mnemonic, 10);
+accounts.forEach((account, idx) => {
+  console.log(idx, account.address, account.privateKey);
+});
