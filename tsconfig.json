@@ -9,13 +9,17 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2020",
+    "resolveJsonModule": true,
     "types": [
       "node"
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@src/*": [
         "./src/*"
+      ],
+      "@contract-lib/*": [
+        "./contract-lib/*"
       ]
     }
   },
@@ -23,6 +27,6 @@
     "node_modules"
   ],
   "include": [
-    "./*.ts"
+    "./**/*.ts"
   ]
 }

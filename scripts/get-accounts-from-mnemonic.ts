@@ -1,4 +1,4 @@
-import { createMnemonic, getAccounts } from "../src/account";
+import { createMnemonic, getAccounts } from "@src/account";
 
 const { MNEMONIC } = process.env;
 

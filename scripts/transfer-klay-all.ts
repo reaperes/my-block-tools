@@ -1,4 +1,4 @@
-import { GAS_PRICE, getKlayBalance, initialize, sendKlay, TRANSFER_GAS } from '@/klay';
+import { GAS_PRICE, getKlayBalance, initialize, sendKlay, TRANSFER_GAS } from '@src/klaytn';
 
 const { FROM_ADDRESS, FROM_PRIVATE_KEY, TO_ADDRESS } = process.env;
 
