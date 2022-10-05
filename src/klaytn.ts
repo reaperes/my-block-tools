@@ -4,6 +4,7 @@ import path from 'path';
 import { TransactionReceipt } from 'caver-js/types/packages/caver-core/src';
 
 import IERC20Meta from '@contract-lib/openzeppelin-solidity_0_5/IERC20.json';
+import { Callback } from "@src/types";
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
@@ -17,12 +18,10 @@ let initialized = false;
 
 let caverHttp: Caver;
 
-type AddressKeyPair = {
+interface AddressKeyPair {
   address: string,
   privateKey: string,
 }
-
-type Callback = (error: Error, result: any) => void;
 
 export function initialize(addressKeyPairs?: AddressKeyPair[]) {
   if (!initialized) {
@@ -44,7 +43,7 @@ export function createCaverHttp() {
 }
 
 export function getKlayBalance(userAddress: string, callback?: Callback): Promise<string> {
-  return caverHttp.klay.getBalance(userAddress, callback);
+  return caverHttp.klay.getBalance(userAddress, 'latest', callback);
 }
 
 export function sendKlay(from: string, to: string, value: bigint | string, callback?: (error: Error, result: TransactionReceipt) => void): Promise<TransactionReceipt> {
