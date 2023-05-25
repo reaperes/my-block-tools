@@ -16,7 +16,7 @@ async function main() {
   const toKlay = BigInt(await getKlayBalance(to));
   console.log(`Current klay balance. from: ${fromKlay}, to: ${toKlay}`);
 
-  const transferGasUsed = BigInt(GAS_PRICE) * BigInt(TRANSFER_GAS);
+  const transferGasUsed = BigInt(GAS_PRICE.toString()) * BigInt(TRANSFER_GAS);
   const transferAmount = fromKlay - transferGasUsed;
   console.log(`Transfer klay to: ${to} from: ${from} amount: ${transferAmount}`);
 
